@@ -3,8 +3,8 @@
 Run a shell command every minute and display its output in a JupyterLab tab.
 E.g. monitor a folder with `ls -lh` or available memory with `free -m`
 
-It is composed by a custom handler nbextension, `jup_mon`, this
-nbextension executes a shell command and returns the output, for example:
+It is composed by a custom handler notebook server extension, `jup_mon`, this
+server extension executes a shell command and returns the output, for example:
 
 ```
 curl localhost:8888/shell/df/-h
@@ -19,7 +19,7 @@ none            100M  8.0K  100M   1% /run/user
 ```
 
 Then a JupyterLab extension in TypeScript is accessible from the menu,
-it calls the nbextension and displays the result in a JupyterLab tab.
+it calls the server extension and displays the result in a JupyterLab tab.
 It should automatically refresh every minute but that is not implemented yet.
 
 ## Prerequisites
