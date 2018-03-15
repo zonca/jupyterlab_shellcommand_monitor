@@ -27,7 +27,7 @@ const extension: JupyterLabPlugin<void> = {
   widget.title.label = 'Shell command monitor';
   widget.title.closable = true;
   // Add an image element to the panel
-  let p = document.createElement('p');
+  let p = document.createElement('pre');
   widget.node.appendChild(p);
 
   // Fetch info about a random comic
