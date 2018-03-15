@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+from tornado import web
+
 from notebook.utils import url_path_join
 from notebook.base.handlers import IPythonHandler
 
@@ -15,6 +17,7 @@ def run_command(cmd):
         raise
 
 class ExecuteShellHandler(IPythonHandler):
+    @web.authenticated
     def get(self, command):
         answer = run_command(command.strip().split("/"))
         self.finish(answer.stdout.strip())
