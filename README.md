@@ -1,7 +1,7 @@
-# jupyterlab_slurm
+# jupyterlab_shellcommand_monitor
 
-Monitor a SLURM queue from JupyterLab
-
+Run a shell command every minute and display its output in a JupyterLab tab.
+E.g. monitor a folder with `ls -lh` or available memory with `free -m`
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Monitor a SLURM queue from JupyterLab
 ## Installation
 
 ```bash
-jupyter labextension install jupyterlab_slurm
+jupyter labextension install jupyterlab_shellcommand_monitor
 ```
 
 ## Development
