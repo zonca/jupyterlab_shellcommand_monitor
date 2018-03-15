@@ -24,19 +24,17 @@ const extension: JupyterLabPlugin<void> = {
   // Create a single widget
   let widget: Widget = new Widget();
   widget.id = 'xkcd-jupyterlab';
-  widget.title.label = 'xkcd.com';
+  widget.title.label = 'Shell command monitor';
   widget.title.closable = true;
   // Add an image element to the panel
-  let img = document.createElement('img');
-  widget.node.appendChild(img);
+  let p = document.createElement('p');
+  widget.node.appendChild(p);
 
   // Fetch info about a random comic
-  fetch('https:////egszlpbmle.execute-api.us-east-1.amazonaws.com/prod').then(response => {
-    return response.json();
+  fetch('/shell/df/-h').then(response => {
+    return response.text();
   }).then(data => {
-    img.src = data.img;
-    img.alt = data.title;
-    img.title = data.alt;
+    p.innerHTML = data;
   });
 
   // Add an application command
