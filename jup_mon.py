@@ -17,7 +17,7 @@ def run_command(cmd):
         raise
 
 class ExecuteShellHandler(IPythonHandler):
-    @web.authenticated
+    #@web.authenticated
     def get(self, command):
         answer = run_command(command.strip().split("/"))
         self.finish(answer.stdout.strip())
