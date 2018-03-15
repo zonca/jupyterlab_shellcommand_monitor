@@ -17,13 +17,13 @@ import '../style/index.css';
  * Initialization data for the jupyterlab_slurm extension.
  */
 const extension: JupyterLabPlugin<void> = {
-  id: 'jupyterlab_slurm',
+  id: 'jupyterlab_shellcommand_monitor',
   autoStart: true,
   requires: [ICommandPalette],
   activate: (app: JupyterLab, palette: ICommandPalette) => {
   // Create a single widget
   let widget: Widget = new Widget();
-  widget.id = 'xkcd-jupyterlab';
+  widget.id = 'shellmonitor-jupyterlab';
   widget.title.label = 'Shell command monitor';
   widget.title.closable = true;
   // Add an image element to the panel
@@ -38,9 +38,9 @@ const extension: JupyterLabPlugin<void> = {
   });
 
   // Add an application command
-  const command: string = 'xkcd:open';
+  const command: string = 'shellmonitor:open';
   app.commands.addCommand(command, {
-    label: 'Random xkcd comic',
+    label: 'Open Shell Monitor',
     execute: () => {
       if (!widget.isAttached) {
         // Attach the widget to the main work area if it's not there
@@ -52,7 +52,7 @@ const extension: JupyterLabPlugin<void> = {
   });
 
   // Add the command to the palette.
-  palette.addItem({command, category: 'Tutorial'});
+  palette.addItem({command, category: 'Extensions'});
   }
 };
 
