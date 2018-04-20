@@ -13,6 +13,14 @@ import {
 import '../style/index.css';
 
 
+function update_widget(p:HTMLElement) {
+  fetch('/shell/free/-m').then(response => {
+    return response.text();
+  }).then(data => {
+    p.innerHTML = data;
+  });
+}
+
 /**
  * Initialization data for the jupyterlab_slurm extension.
  */
@@ -30,12 +38,7 @@ const extension: JupyterLabPlugin<void> = {
   let p = document.createElement('pre');
   widget.node.appendChild(p);
 
-  // Fetch info about a random comic
-  fetch('/shell/df/-h').then(response => {
-    return response.text();
-  }).then(data => {
-    p.innerHTML = data;
-  });
+  setInterval(update_widget, 1000, p);
 
   // Add an application command
   const command: string = 'shellmonitor:open';
