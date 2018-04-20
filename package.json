@@ -28,9 +28,6 @@
     "clean": "rimraf lib",
     "watch": "tsc -w"
   },
-  "dependencies": {
-    "@jupyterlab/application": "^0.15.0"
-  },
   "devDependencies": {
     "rimraf": "^2.6.1",
     "typescript": "~2.6.0"
