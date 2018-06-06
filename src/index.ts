@@ -13,8 +13,9 @@ import {
 import '../style/index.css';
 
 
-function update_widget(p:HTMLElement) {
-  fetch('/shell/free/-m').then(response => {
+function update_widget(p:HTMLElement, input:HTMLInputElement) {
+  console.log(input.value);
+  fetch('/shell/'+input.value.split(" ").join("/")).then(response => {
     return response.text();
   }).then(data => {
     p.innerHTML = data;
@@ -35,10 +36,12 @@ const extension: JupyterLabPlugin<void> = {
   widget.title.label = 'Shell command monitor';
   widget.title.closable = true;
   // Add an image element to the panel
+  let input = document.createElement('input');
+  widget.node.appendChild(input);
   let p = document.createElement('pre');
   widget.node.appendChild(p);
 
-  setInterval(update_widget, 1000, p);
+  setInterval(update_widget, 1000, p, input);
 
   // Add an application command
   const command: string = 'shellmonitor:open';
