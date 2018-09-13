@@ -33,7 +33,7 @@
     "typescript": "~2.6.0"
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.16.0"
+    "@jupyterlab/application": "^0.18.0"
   },
   "jupyterlab": {
     "extension": true
